@@ -1,0 +1,30 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle config-import-export'
+      'command': 'config-import-export:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'config-import-export'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'config-import-export:toggle'
+        }
+        {
+          'label': 'Import'
+          'command': 'config-import-export:import'
+        }
+        {
+          'label': 'Export'
+          'command': 'config-import-export:export'
+        }
+      ]
+    ]
+  }
+]
