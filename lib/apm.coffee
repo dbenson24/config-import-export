@@ -10,9 +10,9 @@ module.exports =
     out = child_process.spawnSync(command, args, options)
     console.log(out)
     if (out.stderr.length > 0)
-      notifier.addError out.stderr.toString()
+      notifier.addError out.stderr.toString(), dismissable:true
     if (out.stdout.length > 0)
-      notifier.addSuccess out.stdout.toString()
+      notifier.addSuccess out.stdout.toString(), dismissable:true
 
 ###
 module.exports =

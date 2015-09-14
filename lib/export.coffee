@@ -1,4 +1,4 @@
-fs = require 'fs'
+fs = require 'fs-plus'
 path = require 'path'
 apm = require './apm'
 
@@ -10,6 +10,7 @@ module.exports =
       version:
         1.02
       files: []
+      packages: []
 
     files = fs.readdirSync(atomPath)
 
@@ -23,7 +24,10 @@ module.exports =
           content: fs.readFileSync(filePath)
         savedConfig.files.push(temp)
 
-    fs.writeFileSync("C:/users/derek/savedconfig.json",JSON.stringify(savedConfig))
+    for packageName in atom.packages.getAvailablePackageNames()
+      if atom.packages.isBundledPackage(packageName) is false
+        savedConfig.packages.push(packageName)
+    fs.writeFileSync(path.join(fs.getHomeDirectory(), "AtomBackups", "backup.json"),JSON.stringify(savedConfig))
 
     ##readConfig = JSON.parse(fs.readFileSync("C:/users/derek/savedconfig.json"))
     ##fs.writeFileSync(path.join(atomPath, 'savedConfig.cson'), new Buffer(readConfig.config))

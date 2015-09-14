@@ -10,7 +10,7 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'config-import-export'
+      'label': 'Config Import Export'
       'submenu': [
         {
           'label': 'Toggle'
