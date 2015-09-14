@@ -14,6 +14,17 @@ module.exports =
     if (out.stdout.length > 0)
       notifier.addSuccess out.stdout.toString(), dismissable:true
 
+  apmAsync: ({args, cwd, options, stdout, stderr, exit}={}) ->
+    command = atom.packages.getApmPath()
+    options ?= {}
+    options.cwd ?= cwd
+    out = child_process.spawnSync(command, args, options)
+    console.log(out)
+    if (out.stderr.length > 0)
+      notifier.addError out.stderr.toString(), dismissable:true
+    if (out.stdout.length > 0)
+      notifier.addSuccess out.stdout.toString(), dismissable:true
+
 ###
 module.exports =
   apm: ({args, cwd, options, stdout, stderr, exit}={}) ->

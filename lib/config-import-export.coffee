@@ -17,7 +17,6 @@ module.exports = ConfigImportExport =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'config-import-export:toggle': => @toggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'config-import-export:export': => @export()
     @subscriptions.add atom.commands.add 'atom-workspace', 'config-import-export:import': => @import()
 

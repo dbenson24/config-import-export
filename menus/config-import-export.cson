@@ -13,10 +13,6 @@
       'label': 'Config Import Export'
       'submenu': [
         {
-          'label': 'Toggle'
-          'command': 'config-import-export:toggle'
-        }
-        {
           'label': 'Import'
           'command': 'config-import-export:import'
         }

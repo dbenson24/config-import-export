@@ -35,10 +35,4 @@ module.exports =
 
 
     console.log savedConfig
-    input =
-      options:
-        cwd: atom.project.getPaths[0]
-        env: process.env
-      args: ["list"]
-    apm.apm(input)
     "Exported a config"
