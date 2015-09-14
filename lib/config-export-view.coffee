@@ -45,8 +45,10 @@ class ExportView extends View
   setPathText: (placeholderName, rangeToSelect) ->
     editor = @miniEditor.getModel()
     rangeToSelect ?= [0, placeholderName.length-5]
-    backupDirectory = fs.getHomeDirectory()
-    editor.setText(path.join(backupDirectory,"AtomBackups", placeholderName))
+    defaultPath = atom.config.get('config-import-export.defaultPath')
+    backupDirectory = defaultPath[process.platform]
+
+    editor.setText(path.join(backupDirectory, placeholderName))
     pathLength = editor.getText().length
     endOfDirectoryIndex = pathLength - placeholderName.length
     editor.setSelectedBufferRange([[0, endOfDirectoryIndex + rangeToSelect[0]], [0, endOfDirectoryIndex + rangeToSelect[1]]])

@@ -5,7 +5,10 @@ apm = require './apm'
 module.exports =
 
   exportConfig: (backupFile) ->
-    backupFile ?= path.join(fs.getHomeDirectory(), "AtomBackups", "backup.json")
+    defaultPath = atom.config.get('config-import-export.defaultPath')
+    thePath = defaultPath[process.platform]
+
+    backupFile ?= path.join(thePath, "backup.json")
 
     atomPath = atom.getConfigDirPath()
     savedConfig =

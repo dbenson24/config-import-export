@@ -35,7 +35,9 @@ class ImportView extends SelectListView
   attach: (@mode) ->
     @panel ?= atom.workspace.addModalPanel(item: this, visible: false)
     @previouslyFocusedElement = $(document.activeElement)
-    files = fs.readdirSync(path.join(fs.getHomeDirectory(), 'AtomBackups'))
+    defaultPath = atom.config.get('config-import-export.defaultPath')
+    backupDirectory = defaultPath[process.platform]
+    files = fs.readdirSync(backupDirectory)
     @setItems(files)
     @panel.show()
     @focusFilterEditor()
