@@ -1,12 +1,14 @@
 {
   "name": "config-import-export",
   "main": "./lib/config-import-export",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "This package lets you export or import your Atom configuration.",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
-    "atom-workspace": ["config-import-export:import","config-import-export:export"]
+    "atom-workspace": [
+      "config-import-export:import",
+      "config-import-export:export"
+    ]
   },
   "repository": "https://github.com/dbenson24/config-import-export",
   "license": "MIT",
