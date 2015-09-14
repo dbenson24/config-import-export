@@ -1,3 +1,2 @@
 ## 0.1.0 - First Release
-* Every feature added
-* Every bug fixed
+* Import and Export to a folder on the home directory, installs the listed packages and pops up notifications for each install

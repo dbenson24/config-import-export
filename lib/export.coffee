@@ -14,7 +14,7 @@ module.exports =
 
     files = fs.readdirSync(atomPath)
 
-    files.push('storage/application.json')
+    #files.push('storage/application.json')
 
     for file in files
       filePath = path.join(atomPath, file)
@@ -28,11 +28,6 @@ module.exports =
       if atom.packages.isBundledPackage(packageName) is false
         savedConfig.packages.push(packageName)
     fs.writeFileSync(path.join(fs.getHomeDirectory(), "AtomBackups", "backup.json"),JSON.stringify(savedConfig))
-
-    ##readConfig = JSON.parse(fs.readFileSync("C:/users/derek/savedconfig.json"))
-    ##fs.writeFileSync(path.join(atomPath, 'savedConfig.cson'), new Buffer(readConfig.config))
-
-
 
     console.log savedConfig
     "Exported a config"

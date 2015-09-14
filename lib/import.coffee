@@ -9,7 +9,7 @@ module.exports =
     fileContents = fs.readFileSync(path.join(fs.getHomeDirectory(), "AtomBackups", backupFile))
     readConfig = JSON.parse(fileContents)
     for file in readConfig.files
-      fs.writeFileSync(path.join(atomPath, "new",file.file), new Buffer(file.content))
+      fs.writeFileSync(path.join(atomPath, file.file), new Buffer(file.content))
 
     for pkg in readConfig.packages
       console.log pkg
@@ -18,5 +18,5 @@ module.exports =
           cwd: atom.project.getPaths[0]
           env: process.env
         args: ["install",pkg]
-      apm.apm(install)
+      apm.apmAsync(install)
     "Imported a config"
