@@ -18,5 +18,5 @@ module.exports =
           cwd: atom.project.getPaths[0]
           env: process.env
         args: ["install",pkg]
-      #apm.apm(install)
+      apm.apm(install)
     "Imported a config"

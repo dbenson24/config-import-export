@@ -6,8 +6,7 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "config-import-export:import",
-    "atom-workspace": "config-import-export:export"
+    "atom-workspace": ["config-import-export:import","config-import-export:export"]
   },
   "repository": "https://github.com/atom/config-import-export",
   "license": "MIT",
