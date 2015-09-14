@@ -8,7 +8,7 @@
   "activationCommands": {
     "atom-workspace": ["config-import-export:import","config-import-export:export"]
   },
-  "repository": "https://github.com/atom/config-import-export",
+  "repository": "https://github.com/dbenson24/config-import-export",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
