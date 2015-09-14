@@ -1,4 +1,5 @@
-ConfigImportExportView = require './config-import-export-view'
+ConfigExportView = require './config-export-view'
+ConfigImportView = require './config-import-view'
 {CompositeDisposable} = require 'atom'
 
 module.exports = ConfigImportExport =
@@ -6,19 +7,21 @@ module.exports = ConfigImportExport =
   subscriptions: null
 
   activate: (state) ->
-    @view = new ConfigImportExportView()
+    @importView = new ConfigImportView()
+    @exportView = new ConfigExportView()
 
 
   deactivate: ->
-    @view?.destroy()
+    @importView?.destroy()
+    @exportView?.destroy()
 
   serialize: ->
 
 
   export: ->
     console.log 'exports was toggled'
-    ConfigImportExportView.attach()
+    @exportView.attach()
 
   import: ->
     console.log 'imports was toggled'
-    ConfigImportExportView.attach()
+    @importView.attach()

@@ -8,12 +8,9 @@ exporter = require './export'
 
 
 module.exports =
-class PackageGeneratorView extends View
+class ExportView extends View
   previouslyFocusedElement: null
   mode: null
-
-  import: (file) ->
-    notification = notifier.addSuccess(importer.importConfig(file), dismissable: true)
 
   export: (file) ->
     notification = notifier.addSuccess(exporter.exportConfig(file), dismissable: true)
@@ -28,7 +25,6 @@ class PackageGeneratorView extends View
 
     @commandSubscription = atom.commands.add 'atom-workspace',
       'config-import-export:export': => @attach('export')
-      'config-import-export:import': => @attach('import')
 
     @miniEditor.on 'blur', => @close()
     atom.commands.add @element,
