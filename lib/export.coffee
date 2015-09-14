@@ -4,7 +4,9 @@ apm = require './apm'
 
 module.exports =
 
-  exportConfig: ->
+  exportConfig: (backupFile) ->
+    backupFile ?= path.join(fs.getHomeDirectory(), "AtomBackups", "backup.json")
+
     atomPath = atom.getConfigDirPath()
     savedConfig =
       version:
@@ -27,7 +29,7 @@ module.exports =
     for packageName in atom.packages.getAvailablePackageNames()
       if atom.packages.isBundledPackage(packageName) is false
         savedConfig.packages.push(packageName)
-    fs.writeFileSync(path.join(fs.getHomeDirectory(), "AtomBackups", "backup.json"),JSON.stringify(savedConfig))
+    fs.writeFileSync(backupFile, JSON.stringify(savedConfig))
 
     console.log savedConfig
     "Exported a config"
