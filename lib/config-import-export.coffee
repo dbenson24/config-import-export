@@ -13,7 +13,7 @@ module.exports = ConfigImportExport =
     defaultPath ?= {}
     thePath = defaultPath[process.platform]
     thePath ?= ""
-    if thePath is "" or !fs.existsSync(thePath)
+    if thePath is "" or not fs.existsSync(thePath)
       defaultPath[process.platform] = path.join fs.getHomeDirectory(), "AtomBackups"
       atom.config.set('config-import-export.defaultPath', defaultPath)
 

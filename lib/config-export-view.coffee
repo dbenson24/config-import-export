@@ -38,8 +38,9 @@ class ExportView extends View
     @panel ?= atom.workspace.addModalPanel(item: this, visible: false)
     @previouslyFocusedElement = $(document.activeElement)
     @panel.show()
+    now = new Date()
     @message.text("Enter the backup path")
-    @setPathText("myBackup.json")
+    @setPathText("backup-#{now.getMonth()+1}-#{now.getDate()}-#{now.getFullYear()}.json")
     @miniEditor.focus()
 
   setPathText: (placeholderName, rangeToSelect) ->
